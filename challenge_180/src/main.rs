@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 fn main() {
-    let s = String::from("Hestllo world");
+    let s = String::from("aabvbcc");
     first_unique(&s)
 }
 
@@ -13,13 +13,18 @@ fn first_unique(s: &String) {
             None => {}
         }
     }
-
+    occurance_map.remove(&' ');
     for c in s.chars() {
         match occurance_map.get(&c) {
             Some(x) => {
-                if x == &1 {println!("{} is the first unique character!", &c);return;}}
+                if x == &1 {
+                    println!("{} is the first unique character!", &c);
+                    return;
+                }
+            }
             None => (),
         }
     }
+    println!("there are no unique characters!");
     println!("{:?}", occurance_map);
 }
